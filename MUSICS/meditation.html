@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditation Music</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: url('background.jpg') no-repeat center center fixed; /* Full Background */
+    background-size: cover;
+    color: white;
+    padding: 20px;
+    position: relative;
+}
+
+/* 🎵 Music Player Box with Blurred Background */
+.player {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Light transparent background */
+    border-radius: 15px;
+    display: inline-block;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+    width: 320px;
+
+    /* 🎨 Apply Background Image Blur Effect */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+        }
+        button {
+            padding: 10px 15px;
+            background: #e94560;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            margin: 0 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, background 0.2s;
+        }
+        button:hover {
+            background: #ff2e63;
+            transform: scale(1.1);
+        }
+        #progressContainer {
+    width: 100%;
+    height: 8px;
+    background: rgba(102, 252, 241, 0.3); /* Semi-transparent background */
+    border: 2px solid rgba(102, 252, 241, 0.6);
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    position: relative;
+
+    /* Glass blur effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+
+    /* Soft glow effect */
+    box-shadow: 0px 4px 10px rgba(102, 252, 241, 0.4);
+    transition: all 0.3s ease-in-out;
+}
+        #progressBar {
+            height: 100%;
+            width: 0%;
+            background: #e94560;
+            border-radius: 5px;
+            transition: width 0.2s;
+        }
+        #trackName {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 16px;
+            color: #f5f5f5;
+        }
+        .time-display {
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Relax with Meditation Music</h1>
+    <p>Enjoy peaceful and relaxing sounds.</p>
+    
+    <div class="player">
+        <p id="trackName">Track: Loading...</p>
+        <audio id="audioPlayer">
+            <source id="audioSource" src="" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <div class="time-display">
+            <span id="currentTime">00:00</span>
+            <span id="totalDuration">00:00</span>
+        </div>
+
+        <div id="progressContainer" onclick="seek(event)">
+            <div id="progressBar"></div>
+        </div>
+
+        <div class="buttons">
+            <button onclick="prevTrack()">⏮</button>
+            <button id="playPauseBtn" onclick="togglePlayPause()">▶</button>
+            <button onclick="nextTrack()">⏭</button>
+        </div>
+    </div>
+
+    <script>
+        const soundFiles = [
+            "vadua-amp-writeman-beta-304239.mp3",
+            "gamma-binaural-beats.mp3",
+            "gen-alpha.mp3",
+            "thetha-waves.mp3",
+            "simply-meditation.mp3",
+            "calm-soul.mp3",
+            "gamma-30.mp3",
+            "rizzlas-gamma.mp3",
+            "meditation-relaxing-music.mp3",
+            "meditation-music.mp3",
+            "meditation-music-nature.mp3",
+            "meditation-blue.mp3"
+        ];
+        
+        let audioPlayer = document.getElementById('audioPlayer');
+        let audioSource = document.getElementById('audioSource');
+        let trackName = document.getElementById('trackName');
+        let progressBar = document.getElementById('progressBar');
+        let playPauseBtn = document.getElementById('playPauseBtn');
+        let currentTimeDisplay = document.getElementById('currentTime');
+        let totalDurationDisplay = document.getElementById('totalDuration');
+
+        let currentTrackIndex = 0;
+
+        function loadTrack(index) {
+            let selectedTrack = soundFiles[index];
+            audioSource.src = selectedTrack;
+            audioPlayer.load();
+            trackName.innerText = "Track: " + selectedTrack.split('/').pop();
+            playPauseBtn.innerText = "▶";
+        }
+
+        function togglePlayPause() {
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playPauseBtn.innerText = "⏸";
+            } else {
+                audioPlayer.pause();
+                playPauseBtn.innerText = "▶";
+            }
+        }
+
+        function nextTrack() {
+            currentTrackIndex = (currentTrackIndex + 1) % soundFiles.length;
+            loadTrack(currentTrackIndex);
+            audioPlayer.play();
+            playPauseBtn.innerText = "⏸";
+        }
+
+        function prevTrack() {
+            currentTrackIndex = (currentTrackIndex - 1 + soundFiles.length) % soundFiles.length;
+            loadTrack(currentTrackIndex);
+            audioPlayer.play();
+            playPauseBtn.innerText = "⏸";
+        }
+
+        function updateProgressBar() {
+            let progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            progressBar.style.width = progress + "%";
+
+            currentTimeDisplay.innerText = formatTime(audioPlayer.currentTime);
+            totalDurationDisplay.innerText = formatTime(audioPlayer.duration);
+        }
+
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return "00:00";
+            let minutes = Math.floor(seconds / 60);
+            let secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
+        }
+
+        function seek(event) {
+            const progressContainer = document.getElementById('progressContainer');
+            const clickPosition = event.offsetX / progressContainer.offsetWidth;
+            audioPlayer.currentTime = clickPosition * audioPlayer.duration;
+        }
+
+        // Load the first track automatically
+        window.onload = () => {
+            loadTrack(0);
+        };
+
+        audioPlayer.ontimeupdate = updateProgressBar;
+    </script>
+</body>
+</html>

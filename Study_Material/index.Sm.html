@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Material Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>📚 Study Material Upload</h1>
+    
+        <!-- 🔹 Upload Section -->
+        <div class="upload-section">
+            <h2>Add Study Material</h2>
+            <select id="materialType">
+                <option value="books">📖 Books</option>
+                <option value="assignments">📂 Assignments</option>
+                <option value="notes">📝 Notes</option>
+                <option value="other">📎 Other</option>
+            </select>
+            <input type="text" id="fileName" placeholder="Enter file name">
+            <input type="file" id="fileInput">
+            <button onclick="addMaterial()">Add Material</button>
+        </div>
+    
+        <!-- 🔹 Materials Section -->
+        <div class="materials-container">
+            <div class="category">
+                <h3>📖 Books</h3>
+                <button onclick="togglePreview('books')">👁️ Preview</button>
+                <div class="materials" id="books" style="display: none;"></div>
+            </div>
+    
+            <div class="category">
+                <h3>📂 Assignments</h3>
+                <button onclick="togglePreview('assignments')">👁️ Preview</button>
+                <div class="materials" id="assignments" style="display: none;"></div>
+            </div>
+    
+            <div class="category">
+                <h3>📝 Notes</h3>
+                <button onclick="togglePreview('notes')">👁️ Preview</button>
+                <div class="materials" id="notes" style="display: none;"></div>
+            </div>
+    
+            <div class="category">
+                <h3>📎 Other</h3>
+                <button onclick="togglePreview('other')">👁️ Preview</button>
+                <div class="materials" id="other" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

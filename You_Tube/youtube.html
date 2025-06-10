@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Recommendations</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Search What You Want...</h1>
+    <input type="text" id="searchQuery" placeholder="Enter search term..." oninput="fetchSuggestions()">
+
+    <div id="suggestions"></div>
+    <button onclick="fetchVideos()">Search</button>
+    <div id="videoPlayer"></div>
+    <div id="results"></div>
+    <div class="floating-btn" onclick="openPage()">+</div>
+
+<!-- Draggable Modal -->
+<div id="draggableModal">
+    <div class="modal-header">
+        <span id="closeModal">&times;</span>
+    </div>
+    <textarea id="modalContent" placeholder="Yahan likho..."></textarea>
+    <div class="modal-footer">
+        <button onclick="downloadData()" >Download</button>
+        <button onclick="clearData()">Delete</button>
+    </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

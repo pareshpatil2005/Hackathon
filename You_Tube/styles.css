@@ -1,0 +1,190 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #1F2833;
+    color: #C5C6C7;
+    padding: 20px;
+}
+
+h1 {
+    color: #66FCF1;
+}
+
+input {
+    padding: 10px;
+    width: 60%;
+    margin-bottom: 10px;
+    border: 2px solid #45A29E;
+    background-color: #0B0C10;
+    color: #C5C6C7;
+}
+
+button {
+    padding: 10px;
+    background-color: #45A29E;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #66FCF1;
+    color: #0B0C10;
+}
+
+#suggestions {
+    text-align: left;
+    width: 60%;
+    margin: auto;
+    background: #0B0C10;
+    border: 1px solid #45A29E;
+    display: none;
+    position: absolute;
+    z-index: 10;
+}
+
+#suggestions div {
+    padding: 10px;
+    cursor: pointer;
+    color: #C5C6C7;
+}
+
+#suggestions div:hover {
+    background: #45A29E;
+    color: #0B0C10;
+}
+
+#videoPlayer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#results {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.video {
+    margin: 10px;
+    padding: 10px;
+    background: #0B0C10;
+    box-shadow: 0px 0px 5px #66FCF1;
+    width: 300px;
+    cursor: pointer;
+    color: #C5C6C7;
+    text-align: center;
+}
+
+.video img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Floating Button */
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #66fcf1;
+    color: #0b0c10;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s;
+    z-index: 100;
+}
+
+.floating-btn:hover {
+    background-color: #45a29e;
+    color: white;
+}
+
+/* Draggable Modal */
+#draggableModal {
+    display: none;
+    position: absolute;
+    width: 400px;
+    height: 300px;
+    background: #0B0C10;
+    border: 2px solid #45A29E;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    top: 50px;
+    left: 50px;
+    cursor: grab;
+    overflow: hidden;
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 10px;
+    background: #45A29E;
+    color: #0B0C10;
+    font-weight: bold;
+    cursor: move;
+    text-align: right;
+}
+
+/* Close Button */
+#closeModal {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+/* Modal Content */
+#modalContent {
+    width: 100%;
+    height: 70%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: #1F2833;
+    color: #C5C6C7;
+    font-size: 16px;
+}
+
+/* Footer Buttons - Always Visible */
+.modal-footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #45A29E;
+    border-top: 2px solid #0B0C10;
+    z-index: 100;
+}
+
+.modal-footer button {
+    flex: 1;
+    margin: 5px;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    background: #0B0C10;
+    color: #66FCF1;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.modal-footer button:hover {
+    background: #1F2833;
+    color: #fff;
+}
+
+

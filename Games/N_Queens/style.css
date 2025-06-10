@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f3f2ef; /* LinkedIn-like background */
+    color: #0073b1; /* LinkedIn blue */
+}
+
+h1 {
+    color: #004182;
+}
+
+.board {
+    display: grid;
+    gap: 5px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e1e9ee; /* Light LinkedIn blue */
+    border: 2px solid #0073b1;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.cell.queen {
+    background-color: #ffcc00; /* Yellow for queen */
+}
+
+.cell.invalid {
+    background-color: #ff4d4d; /* Red for invalid placements */
+}
+
+button {
+    background-color: #0073b1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #005582;
+}

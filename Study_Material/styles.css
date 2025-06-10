@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #0B0C10;
+    color: #C5C6C7;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #1F2833;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px #66FCF1;
+}
+
+/* 🔹 Upload Section */
+.upload-section {
+    background: #1F2833;
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px #66FCF1;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.upload-section input, select, button {
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #66FCF1;
+    border-radius: 4px;
+}
+
+button {
+    background: #66FCF1;
+    color: #0B0C10;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #45A29E;
+}
+
+/* 🔹 Sections */
+.materials-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+.category {
+    flex: 1;
+    padding: 12px;
+    background: #1F2833;
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px #66FCF1;
+    text-align: center;
+}
+
+/* 🔹 Material Items */
+.material-item {
+    background: #45A29E;
+    padding: 8px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.material-item a {
+    color: #0B0C10;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.material-item a:hover {
+    text-decoration: underline;
+}
+
+/* 🔹 Preview Button */
+button {
+    width: auto;
+    margin-top: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+/* 🔹 Responsive */
+@media (max-width: 768px) {
+    .materials-container {
+        flex-direction: column;
+    }
+}
